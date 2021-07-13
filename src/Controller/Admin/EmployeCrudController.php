@@ -4,6 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Employe;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class EmployeCrudController extends AbstractCrudController
 {
@@ -12,14 +16,25 @@ class EmployeCrudController extends AbstractCrudController
         return Employe::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('civilite','Civilite'),
+            TextField::new('nom','Nom'),
+            TextField::new('prenom','Prénom'),
+            TextField::new('adresse','Adresse'),
+            TextField::new('cp','CP'),
+            TextField::new('ville','Ville'),
+            TextField::new('telephone','Télèphone'),
+            EmailField::new('email','Email'),
+            TextField::new('motDePasse','Mot de Passe'),
+            TextField::new('role'),
+            DateField::new('dateNaissance'),
+            TextField::new('fonction'),
+            DateField::new('dateEmbauche'),
+            DateField::new('dateFinContrat'),
         ];
     }
-    */
+    
 }

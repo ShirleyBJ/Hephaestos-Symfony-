@@ -42,6 +42,10 @@ class Fournisseur
      */
     private $telephone;
 
+    public function __toString(): string{
+        return $this->societe;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

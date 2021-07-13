@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,11 +41,20 @@ class Produit
 
     /**
      * @ORM\OneToOne(targetEntity=Fournisseur::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $fournisseur;
 
-    
+    /**
+     * @ORM\Column(type="string", length=60, nullable=true)
+     */
+    private $imgProduit;
+
+    public function __toString(): string
+    {
+        return (string) $this->nom;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +116,18 @@ class Produit
     public function setFournisseur(Fournisseur $fournisseur): self
     {
         $this->fournisseur = $fournisseur;
+
+        return $this;
+    }
+
+    public function getImgProduit(): ?string
+    {
+        return $this->imgProduit;
+    }
+
+    public function setImgProduit(?string $imgProduit): self
+    {
+        $this->imgProduit = $imgProduit;
 
         return $this;
     }

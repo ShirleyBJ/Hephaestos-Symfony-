@@ -26,6 +26,11 @@ class CategorieProduit
      * @ORM\Column(type="string", length=100)
      */
     private $description;
+    
+    public function __toString(): string
+    {
+        return (string) $this->nom;
+    }
 
     public function getId(): ?int
     {
