@@ -61,6 +61,11 @@ class Commande
      */
     private $produitCommanders;
 
+    public function __toString()
+    {
+        return $this->id;
+    }
+
     public function __construct()
     {
         $this->produit = new ArrayCollection();

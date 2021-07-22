@@ -74,14 +74,14 @@ class Utilisateur
      */
     private $commandes;
 
+    public function __toString(): string
+    {
+        return $this->id;
+    }
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
-    }
-
-    public function __toString(): string
-    {
-        return $this->commandes;
     }
 
     public function getId(): ?int

@@ -32,6 +32,11 @@ class ProduitCommander
      */
     private $produit;
 
+    public function __toString(): string
+    {
+        return $this->id;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
